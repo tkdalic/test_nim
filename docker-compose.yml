@@ -1,0 +1,9 @@
+version: '3'
+services:
+  nim:
+    container_name: test_nim
+    image: nimlang/nim
+    tty: true
+    volumes:
+      - .:/app
+    working_dir: /app
