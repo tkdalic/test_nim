@@ -4,11 +4,11 @@ iterator getNgram(words: seq[string], n: int): seq[string] =
     for index in 0..(words.len - n):
         yield words[index..(index + n - 1)]
 
-iterator getWordNgram(sentence: string, n: int): string =
+iterator getWordNgram*(sentence: string, n: int): string =
     for ngram in getNgram(sentence.split(" "), n):
         yield ngram.join(" ")
 
-iterator getCharNgram(sentence: string, n: int): string =
+iterator getCharNgram*(sentence: string, n: int): string =
     for ngram in getNgram(sentence.toRunes.map(rune => rune.toUTF8), n):
         yield ngram.join("")
 
